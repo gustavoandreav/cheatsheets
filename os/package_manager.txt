@@ -1,0 +1,109 @@
+Last update: 19 June 2023
+
+
+Definition
+##########
+A package manager or a package-management system is a collection of software
+tools that automates the process of installing, updgrading, configuring, and
+removing computer programs for a computer in a consistent manner.
+
+A package manager deals with packages, distributions of software and data in 
+archive files.
+Packages contain metadata, such as the software's name, description, version
+number, vendor checksum and a list of dependencies necessary for the software 
+to run properly.
+
+They work closely with software repositories, binary repository managers and 
+app stores.
+
+Tasks
+#####
+- Working with file archivers to extract package archives
+- Ensuring the integrity and authenticity of the package by verifying their
+checksums and digital certificates, respectively
+- Looking up, downloading, installing, or updating existing software from a 
+software repository or app store
+- Grouping packages by function to reduce user confusion
+- Managing dependencies to ensure a package is installed with all packages it
+requires, thus avoiding "dependency hell"
+
+Repositories
+############
+To give uers more control over the kinds of software that they are allowing to 
+be installed on their system (and sometimes due to legal or convenience reasons
+on the distributors' side), software is often downloaded from a number of 
+software repositories.
+
+Upgrade suppression
+###################
+When a user wants to upgrade packages, it is possible to upgrade in bulk all 
+packages, or to select individual packages for upgrades. Many package managers
+can be configured to never upgrade certain packages, or to upgrade them only 
+when critical vulnerabilities or instabilities are found in the previous
+version. This process is sometimes called version pinning.
+
+Commands comparisson
+####################
+zypper
+    - install package: zypper in ${PKG}
+    - remove package: zypper rm -RU ${PKG}
+    - remove package(and orphans): zypper rm -u --force-resolution ${PKG}
+    - update software database: zypper ref
+    - show updatable packages: zypper lu
+    - delete orphans and config: zypper rm -u
+    - show orphans: zypper pa --orphaned --unneeded
+    - update all: zypper up
+pacman
+    - install package: pacman -S ${PKG}
+    - remove package: pacman -R ${PKG}
+    - remove package(and orphans): pacman -Rs ${PKG}
+    - update software database: pacman -Sy
+    - show updatable packages: pacman -Qu
+    - delete orphans and config: pacman -Rsn $(pacman -Qdtq)
+    - show orphans: pacman -Qdt
+    - update all: pacman -Syu
+apt
+    - install package: apt install ${PKG}
+    - remove package: apt remove ${PKG}
+    - remove package(and orphans): apt autoremove ${PKG}
+    - update software database: apt update
+    - show updatable packages: apt list --upgradable
+    - delete orphans and config: apt autoremove
+    - show orphans: 
+    - update all: apt upgrade
+dnf(yum)
+    - install package: dnf install ${PKG}
+    - remove package: dnf remove --nodeps ${PKG}
+    - remove package(and orphans): dnf remov ${PKG}
+    - update software database: dnf check-update
+    - show updatable packages: dnf check-update
+    - delete orphans and config: dnf erase ${PKG}
+    - show orphans: package-cleanup -q --leaves --exclude-bin (-q is shorthand for --quiet)
+    - update all: dnf update
+homebrew
+    - install package: brew install ${PKG}
+    - remove package: brew rm ${PKG}
+    - remove package(and orphans): brew rm ${PKG && brew autoremove
+    - update software database: brew update
+    - show updatable packages: brew outdated
+    - delete orphans and config: brew unlik ${PKG} && brew clean
+    - show orphans: 
+    - update all: brew upgrade
+nix
+    - install package: nix-env -i ${PKG}
+    - remove package: nix-env -e ${PKG}
+    - remove package(and orphans): nix-env -e ${PKG} && nix-env -u
+    - update software database: nix-channel --upgrade
+    - show updatable packages: nix-channel --upgrade && nix-env -u && nix-collect-garbage
+    - delete orphans and config: nix-collect-garbage -d
+    - show orphans: 
+    - update all: nix-env -u && nix-collect-garbage
+xbps
+    - install package: xbps-install ${PKG}
+    - remove package: xbps-remove ${PKG}
+    - remove package(and orphans): xbps-remove -R ${PKG}
+    - update software database: xbps-install -S
+    - show updatable packages: ./xbps-src update-check ${PKG} (requires void-packages repository)
+    - delete orphans and config: xbps-remove -of
+    - show orphans: xbps-remove -o
+    - update all: xbps-install -Su

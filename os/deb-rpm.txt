@@ -1,0 +1,26 @@
+DEB
+###
+A DEB file is a software package that is used by linux distributions that are
+based on Debian, like Ubuntu, Linux Mint, Deepin, AntiX, Kali and so many more.
+The deb files are most commonly used to update or install UNIX applications. The
+file itself contains two files with .tar extension. One is for installable and
+the other is for installer control information.
+
+For performing various tasks on .deb files like installing, removing, checking,
+etc, we need a package manager. Debian-related files have dpkg as their package
+manager (dkpg stands for Debian Package).
+
+RPM
+###
+RPM file is a software package that is used by linux distributions based on Red
+Hat Linux, like Fedora, Rocky, Alma, CentOS, and many more. Infact RPM itself 
+is an abbreviation for Red Hat Package Manager. Just like dpkg is the package
+manager for deb, the package manager for RPM is RPM itself.
+
+RPM was created 25 years ago, and is used in many linux distros like clearOS,
+Alma Linux, CentOS, openSUSE, Oracle Linux, Fedora, OpenMandriva, rocky linux 
+and so many other distros based on Red Hat Linux.
+
+RPM works only on packages that are built on .rpm format. The tool allows users
+to update, installm query, check, uninstall and manage system software in 
+UNIX/Linux operating systems derived from Red Hat.

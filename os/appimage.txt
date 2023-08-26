@@ -1,0 +1,37 @@
+AppImage is a format for distributnig portable software on Linux without needing
+superuser permissions to install the application. It tries also to allow Linux
+distribution-agnostic binary software deployment for the application developers,
+also called upstream packaging.
+Released in 2004 under the name klik, then in 2011 became PortableLinuxApps, 
+and later in 2013 finally got the name of AppImage
+
+Objectives
+##########
+AppImage aims to be an application deployment system for Linux with the 
+following objectives: simplicity, binary compatibility, portability, distro
+agnosticism, no installation, no root permission, and keeping the underlying OS
+untouched.
+
+Properties
+##########
+AppImage dos not install the application in the traditional Linux sense. Instead
+of putting the application's various files in the distro's appropriate places in
+the file system, the AppImage file is just the application's compressed image.
+When it runs, the file is mounted with FUSE. This behavior is consistent with
+AppImage's predecessors, klik and PortableLinuxApps.
+
+It uses one file per application. Each file is self-contained: it includes all
+libraries the application depends on that are not already part of the targeted
+base-system. An AppImage version 1.0 is an ISO 9660 Rock Ridge file containing
+a minimal AppDir and a tiny runtime. An AppImage application can be added to a 
+live CD by adding only one file to the live CD.
+
+AppImage files are simpler than installing an application. No extraction tools
+are needed, nor is it necessary to modify the operating system or user 
+environment. Regular users on the common Linux distributions can download it,
+make it executable, and run it.
+
+AppImage allows generation of embedded digital signature, which need to be 
+verified with an external utility. The format does not offer form of self-check
+with package authenticity verification or runtime confinement by sandboxing.
+

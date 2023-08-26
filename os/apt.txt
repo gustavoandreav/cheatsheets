@@ -1,0 +1,14 @@
+APT (Advanced Package Tool) is a free software user interface for Debian and 
+Debian-based Linux distributions that interacts with core libraries to handle
+program installation and removal. APT is a package that contains a set of 
+utilities called apt. A large component of APT is specified in a C++ function
+library; APT also contains command-line applications for interacting with 
+packages that utilize the library. Apt, apt-get, and apt-cache are three such
+applications. 
+Because they are easy and common, they are frequently used in examples. In all
+current Debian versions, the apt package has "important" priority and is thus
+included in a basic Debian installation. APT is front-end to dpkg that is more
+user-friendly that the earlier select front-end. While dpkg handles individual
+package activities, APT handles package relationships (particularly 
+dependencies) as well as the sourcing and administration of higher-level 
+versioning choices.
